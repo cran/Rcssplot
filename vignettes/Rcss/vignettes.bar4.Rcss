@@ -1,0 +1,18 @@
+/**
+ * Rcss for Rcssplot vignette, barplot part 4
+ */
+
+ baraxis {
+  stripe: 1;  
+}
+barplot.dotted {
+  col: #9999cc;
+}
+baraxis.dotted {
+  stripe: 1;
+  ylim: 0 101;
+}
+abline.dotted {
+  col: #666666;
+  lty: 2;
+}

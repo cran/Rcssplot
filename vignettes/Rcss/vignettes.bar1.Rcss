@@ -1,0 +1,9 @@
+/**
+ * Rcss for Rcssplot vignette, barplot part 1
+ */
+
+ barplot {
+  border: NA;
+  col: #000080;	
+  space: 0.35;
+}
