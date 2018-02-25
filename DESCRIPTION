@@ -1,6 +1,6 @@
 Package: Rcssplot
 Title: Styling of Graphics using Cascading Style Sheets
-Version: 0.2.0.0
+Version: 0.3.0
 Authors@R: person("Tomasz", "Konopka", , "tokonopka@gmail.com", role = c("aut", "cre"))
 Author: Tomasz Konopka [aut, cre]
 Maintainer: Tomasz Konopka <tokonopka@gmail.com>
@@ -8,12 +8,12 @@ Description: Provides a means to style plots through cascading style sheets.
     This separates the aesthetics from the data crunching in plots and charts.
 Depends: R (>= 3.1.2)
 Imports: graphics, stats, utils
-Suggests: knitr, rmarkdown
+Suggests: knitr, rmarkdown, testthat
 License: GPL-2
 LazyData: true
 VignetteBuilder: knitr
-RoxygenNote: 5.0.1
+RoxygenNote: 6.0.1
 NeedsCompilation: no
-Packaged: 2017-03-06 10:51:49 UTC; tomasz
+Packaged: 2018-02-25 10:59:25 UTC; tkonopka
 Repository: CRAN
-Date/Publication: 2017-03-06 13:53:03
+Date/Publication: 2018-02-25 11:19:30 UTC

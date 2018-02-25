@@ -262,11 +262,11 @@ showrcss("Rcss/vignettes.bar4.Rcss")
 
 ## ----getprop, eval=TRUE--------------------------------------------------
 style4 <- Rcss(paste0("Rcss/vignettes.bar", c(1, 2, 4), ".Rcss"))
-RcssGetPropertyValue(style4, "baraxis", "stripe")
+RcssProperty("baraxis", "stripe", Rcss=style4)
 
 ## ----getprop2------------------------------------------------------------
-RcssGetPropertyValueOrDefault(style4, "baraxis", "stripe", default=0)
-RcssGetPropertyValueOrDefault(style4, "baraxis", "strpe", default=0)
+RcssValue("baraxis", "stripe", default=0, Rcss=style4)
+RcssValue("baraxis", "strpe", default=0, Rcss=style4)
 
 ## ----barplot6, eval=TRUE-------------------------------------------------
 ## barplot using Rcssplot, version 5 (uses custom css selectors)
@@ -277,10 +277,8 @@ rcss.barplot.5 <- function(x, main="", ylab="Proportion (%)",
   RcssDefaultStyle <- RcssGetDefaultStyle(Rcss)
   RcssCompulsoryClass <- RcssGetCompulsoryClass(Rcssclass)
   ## extract custom properties - show axis? force ylim?
-  stripes <- RcssGetPropertyValueOrDefault(Rcss, selector="baraxis",
-    property="stripe", default=0)
-  ylim <- RcssGetPropertyValueOrDefault(Rcss, selector="baraxis",
-    property="ylim", default=NULL)
+  stripes <- RcssValue("baraxis", "stripe", default=0)
+  ylim <- RcssValue("baraxis", "ylim", default=NULL)
   ## create background
   barpos <- barplot(x, axes=FALSE, axisnames=FALSE, ylim=ylim, 
       col="#ffffff", border=NA)
@@ -309,7 +307,7 @@ rcss.barplot.5 <- function(x, main="", ylab="Proportion (%)",
 #  a2 <- setNames(c(12, 20, 26, 72, 88, 94), tail(letters, 6))
 #  rcss.barplot.5(a2, main="... new data", Rcss=style4, Rcssclass="dotted")
 
-## ----fig_stripes, echo = FALSE, out.width = "0.9\\textwidth", out.height = "0.225\\textwidth", fig.width = 10, fig.height = 2.5, fig.cap = "Charts using custom css selectors: (A) horizontal rules instead of a y-axis; (B) styled rules with a fixed vertical scale; (C) again styled rules with a fixed vertical scale, but with a different data input. "----
+## ----fig_stripes, echo = FALSE, out.width = "0.9\\textwidth", out.height = "0.225\\textwidth", fig.width = 10, fig.height = 2.5, fig.cap = "Charts using custom css selectors: (A) horizontal rules instead of a y-axis; (B) styled rules with a fixed vertical scale; (C) again styled rules with a fixed vertical scale, showing new data. "----
 par(mfrow = c(1, 3), mar = c(2, 6, 4.8, 2))
 rcss.barplot.5(a, main="Stripes", Rcss=style4)
 graphics::text(-2, 104, "A", cex=2, xpd=TRUE)
