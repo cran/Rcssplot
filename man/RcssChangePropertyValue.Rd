@@ -4,8 +4,14 @@
 \alias{RcssChangePropertyValue}
 \title{Modify an Rcss style sheet object}
 \usage{
-RcssChangePropertyValue(Rcss, selector, Rcssclass = NULL,
-  propertylist = NULL, property = NULL, value = NULL)
+RcssChangePropertyValue(
+  Rcss,
+  selector,
+  Rcssclass = NULL,
+  propertylist = NULL,
+  property = NULL,
+  value = NULL
+)
 }
 \arguments{
 \item{Rcss}{style sheet object}
@@ -30,4 +36,9 @@ one or more properties.
 }
 \details{
 Equivallent to RcssChange: use RcssChange instead
+}
+\examples{
+
+# use RcssChange instead
+
 }

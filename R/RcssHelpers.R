@@ -1,39 +1,47 @@
-##
-## File part of Rcssplot package
-## Functions provide some generic add-ons 
-## 
-##
-##
-## Author: Tomasz Konopka
-##
+# File part of Rcssplot package
+# Functions provide some generic add-ons 
+# 
+#
+# Author: Tomasz Konopka
 
 
-##
-## Helper function stopCF = stop with call. = FALSE
-##
+#' stop with call. = FALSE
+#'
+#' @keywords internal
+#' @noRd
+#' @param ... arguments passed to stop()
 stopCF <- function(...) {
   stop(..., call. = FALSE)
 }
 
 
+#' trigger a stop, with a message 
+#'
+#' @keywords internal
+#' @noRd
+#' @param msg character, message to display
+#' @param line.number integer, used as part of the error message
+stopAtLine <- function(msg, line.number) {
+  stop(paste0("line ", line.number, "\n", msg, "\n") , call.=FALSE)
+}
 
-##
-## Helper function produces code of the type
-## "col=VALUE, lty=VALUE, " (with comma at the end)
-## given set of argumes ("col","lty") and a list containing
-## the values
-##
+
+#' produces code of the type
+#' "col=VALUE, lty=VALUE, " (with comma at the end)
+#'
+#' @keywords internal
+#' @noRd
+#' @param varnames character vector
+#' @param listname character
+#'
+#' @return character
 RcssMakeCallCodeString <- function(varnames, listname) {
   if (length(varnames) == 0) {
     return ("")
   }
   ans = sapply(as.list(varnames), function(x) {
-    return (paste0(x, "=", listname, "$", x))
+    paste0(x, "=", listname, "$", x)
   })  
-  return (paste0(", ",paste(ans, collapse = ", ")));    
+  paste0(", ",paste(ans, collapse = ", "))
 }
-
-
-
-
 

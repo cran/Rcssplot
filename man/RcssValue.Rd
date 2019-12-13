@@ -4,8 +4,13 @@
 \alias{RcssValue}
 \title{Extracts a value from an Rcss object}
 \usage{
-RcssValue(selector, property, default = NULL, Rcssclass = NULL,
-  Rcss = "default")
+RcssValue(
+  selector,
+  property,
+  default = NULL,
+  Rcssclass = NULL,
+  Rcss = "default"
+)
 }
 \arguments{
 \item{selector}{character, name of selector, e.g. 'points'}
@@ -18,6 +23,9 @@ RcssValue(selector, property, default = NULL, Rcssclass = NULL,
 
 \item{Rcss}{Rcss object}
 }
+\value{
+a value from the Rcss object
+}
 \description{
 If the selector and property are defined in the Rcss object,
 this function will return the value stored in the Rcss object.
@@ -25,4 +33,11 @@ Otherwise, the function will return a default value.
 See also related functions RcssGetPropertyValueOrDefault, which
 is the same, except that RcssValue is shorter to write and takes
 the Rcss object as its last argument.
+}
+\examples{
+
+style1 <- Rcss(text="custom { key: 100 }")
+RcssValue("custom", "key", default=1, Rcss=style1)
+RcssValue("custom", "key2", default=0, Rcss=style1)
+
 }

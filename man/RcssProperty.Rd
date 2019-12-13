@@ -2,7 +2,7 @@
 % Please edit documentation in R/RcssGet.R
 \name{RcssProperty}
 \alias{RcssProperty}
-\title{Extracts information about property and its value}
+\title{Extract information about property and its value}
 \usage{
 RcssProperty(selector, property, Rcssclass = NULL, Rcss = "default")
 }
@@ -15,6 +15,19 @@ RcssProperty(selector, property, Rcssclass = NULL, Rcss = "default")
 
 \item{Rcss}{Rcss object}
 }
+\value{
+list with two ites. Component "defined" is a boolean that indicates
+whether the property is defined in the style. Component "value" gives
+the actual value associated to the property.
+}
 \description{
-See also RcssGetPropertyValue.
+Extract information about property and its value
+}
+\examples{
+
+style1 <- Rcss(text="points { cex: 2; }")
+# cex is defined, col is not defined
+RcssProperty("points", "cex", Rcss=style1)
+RcssProperty("points", "col", Rcss=style1)
+
 }
